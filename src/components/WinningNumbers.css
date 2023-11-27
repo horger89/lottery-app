@@ -1,71 +1,70 @@
 .winning-container {
-    border-radius: 25px;
-    background-color: #cddef6;
-    height: 300px;
-    width: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    display: flex;
-    position: relative;
-    flex-direction: column;
-  }
+  border-radius: 25px;
+  background-color: #cddef6;
+  height: 300px;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  display: flex;
+  position: relative;
+  flex-direction: column;
+}
 
-  .winning-container h1 {
-    font-family: "Roboto", sans-serif;
-    font-weight: 700;
-    margin: 0;
-    color: #3d4043;
-    font-size: 60px;
-    text-align: center;
-  }
+.winning-container h1 {
+  font-family: "Roboto", sans-serif;
+  font-weight: 700;
+  margin: 0;
+  color: #3d4043;
+  font-size: 60px;
+  text-align: center;
+}
 
-  .winning-numbers {
-    align-items: center;
-    display: flex;
-    position: relative;
-    justify-content: center;
-    flex-wrap: wrap;
-    flex-direction: row;
-  }
+.winning-numbers {
+  align-items: center;
+  display: flex;
+  position: relative;
+  justify-content: center;
+  flex-wrap: wrap;
+  flex-direction: row;
+}
 
-  .winning-btn {
-    width: 230px;
-    border-radius: 15px;
-    border: none;
-    font-size: 20px;
-    text-transform: uppercase;
-    background-color: #2d44f0;
-    color: #fff;
-    cursor: pointer;
-    transform: scale(1, 1);
-    transition: transform 0.5s ease;
-    margin: 10px 10px;
-    font-family: "Roboto", sans-serif;
-  }
+.winning-btn {
+  width: 330px;
+  height: 55px;
+  border-radius: 15px;
+  border: none;
+  font-size: 25px;
+  text-transform: uppercase;
+  background-color: #2d44f0;
+  color: #fff;
+  cursor: pointer;
+  transform: scale(1, 1);
+  transition: transform 0.5s ease;
+  margin: 10px 10px;
+  font-family: "Roboto", sans-serif;
+}
+
+.center-button {
+  text-align: center;
+}
+
+.winning-btn:hover {
+  transform: scale(1.1, 1.1);
+}
+
+.numbers {
+  padding-top: 8px;
+  width: 85px;
+  height: 75px;
+  background-color: white;
+  border-radius: 25px;
+  margin: 15px 15px;
+  text-align: center;
+  font-family: "Roboto", sans-serif;
+  font-weight: 700;
+  font-size: 60px;
+  border: none;
+  color: #3d4043;
   
-  .center-button {
-    text-align: center;
-  }
-  
-  .winning-btn:hover {
-    transform: scale(1.1, 1.1);
-  }
-
-  .numbers {
-    width: 65px;
-    height: 65px;
-    background-color: white;
-    border-radius: 15px;
-    margin: 15px 15px;
-    text-align: center;
-    font-family: "Roboto", sans-serif;
-    font-weight: 700;
-    font-size: 30px;
-    border: none;
-    color: #3d4043;
-    cursor: pointer;
-    transform: scale(1, 1);
-    transition: transform 0.5s ease;
-    text-transform: uppercase;
-  }
+}

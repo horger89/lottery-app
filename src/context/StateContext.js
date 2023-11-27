@@ -23,9 +23,11 @@ export const StateContext = ({ children }) => {
   const [operatorTickets, setOperatorTickets] = useState([]);
   //Quantity form
   const [amountToAdd, setAmountToAdd] = useState(0);
+  console.log(amountToAdd);
   const [showForm, setShowForm] = useState(false);
   //Winning Numbers
   const [isDrawn, setIsDrawn] = useState(false);
+  console.log(isDrawn);
   const [winningNumbers, setWinningNumbers] = useState([]);
 
   //HANDLERS
@@ -95,6 +97,7 @@ export const StateContext = ({ children }) => {
       setOperatorTickets(updatedOperatorTickets);
       setPricePot(pricePot + amountToAdd * 1000);
       setShowForm(false);
+      setAmountToAdd(0);
     }
   };
 
@@ -134,6 +137,8 @@ export const StateContext = ({ children }) => {
         showForm,
         showFromHandler,
         isDrawn,
+        WinningTicketGenerator,
+        winningNumbers
       }}
     >
       {children}
