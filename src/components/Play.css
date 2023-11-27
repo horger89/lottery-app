@@ -1,0 +1,144 @@
+.container {
+  border-radius: 25px;
+  background-color: #cddef6;
+  height: 500px;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  display: flex;
+  position: relative;
+  flex-direction: column;
+}
+
+.operator-container {
+  border-radius: 25px;
+  background-color: #cddef6;
+  height: 300px;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  display: flex;
+  position: relative;
+  flex-direction: column;
+}
+
+.container h1 {
+  padding-top: 25px;
+  font-family: "Roboto", sans-serif;
+  font-weight: 700;
+  margin: 0;
+  color: #3d4043;
+  font-size: 60px;
+  text-align: center;
+}
+
+.operator-container h1 {
+  font-family: "Roboto", sans-serif;
+  font-weight: 700;
+  margin: 0;
+  color: #3d4043;
+  font-size: 60px;
+  text-align: center;
+}
+
+
+.select-numbers {
+  align-items: center;
+  display: flex;
+  position: relative;
+  justify-content: center;
+  flex-wrap: wrap;
+  flex-direction: row;
+}
+
+.operator-btns {
+  margin: 20px 20px;
+  flex-direction: row;
+}
+
+.btn {
+  width: 230px;
+  border-radius: 15px;
+  border: none;
+  font-size: 20px;
+  text-transform: uppercase;
+  background-color: #2d44f0;
+  color: #fff;
+  cursor: pointer;
+  transform: scale(1, 1);
+  transition: transform 0.5s ease;
+  margin: 10px 10px;
+  font-family: "Roboto", sans-serif;
+}
+
+.center-button {
+  text-align: center;
+}
+
+.btn:hover {
+  transform: scale(1.1, 1.1);
+}
+
+.number-btn {
+  width: 65px;
+  height: 65px;
+  background-color: white;
+  border-radius: 15px;
+  margin: 15px 15px;
+  text-align: center;
+  font-family: "Roboto", sans-serif;
+  font-weight: 700;
+  font-size: 30px;
+  border: none;
+  color: #3d4043;
+  cursor: pointer;
+  transform: scale(1, 1);
+  transition: transform 0.5s ease;
+  text-transform: uppercase;
+}
+
+.number-btn:hover {
+  transform: scale(1.1, 1.1);
+}
+
+.active-number-btn {
+  width: 65px;
+  height: 65px;
+  background-color: green;
+  border-radius: 15px;
+  margin: 15px 15px;
+  text-align: center;
+  font-family: "Roboto", sans-serif;
+  font-weight: 700;
+  font-size: 30px;
+  border: none;
+  color: #3d4043;
+  cursor: pointer;
+  transform: scale(1, 1);
+  transition: transform 0.5s ease;
+  text-transform: uppercase;
+}
+
+.active-number-btn:hover {
+  transform: scale(1.1, 1.1);
+}
+
+@media only screen and (max-width: 768px) {
+  .container {
+    height: 250px;
+    padding-top: 0px;
+  }
+
+  .container h1 {
+    font-size: 25px;
+    padding: 10px;
+  }
+
+  .btn {
+    width: 80px;
+    font-size: 6px;
+    margin: 2px 2px;
+  }
+}

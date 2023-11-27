@@ -1,0 +1,31 @@
+.options {
+  text-align: center;
+}
+
+.btn {
+  width: 180px;
+  padding: 10px 12px;
+  border-radius: 15px;
+  border: none;
+  font-size: 20px;
+  text-transform: uppercase;
+  background-color: #2d44f0;
+  color: #fff;
+  cursor: pointer;
+  transform: scale(1, 1);
+  transition: transform 0.5s ease;
+  margin: 10px 10px;
+  font-family: "Roboto", sans-serif;
+}
+
+.btn:hover {
+  transform: scale(1.1, 1.1);
+}
+
+@media only screen and (max-width: 768px) {
+  .btn {
+    width: 100px;
+    font-size: 8px;
+    margin: 2px 2px;
+  }
+}

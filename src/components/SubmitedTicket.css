@@ -1,0 +1,86 @@
+.small-container {
+  position: relative;
+  border-radius: 25px;
+  background-color: #f8f9fa;
+  width: 40%;
+  height: 250px;
+  margin: 10px;
+  cursor: pointer;
+  transform: scale(1, 1);
+  transition: transform 0.5s ease;
+  align-items: center;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.small-container h1 {
+  font-family: "Roboto", sans-serif;
+  color: #3d4043;
+  font-size: 25px;
+  text-align: center;
+  padding-right: 10px;
+  padding-left: 10px;
+  font-weight: 700;
+}
+
+.ticket {
+  flex-direction: row;
+  display: flex;
+}
+
+.ticket-number {
+  position: relative;
+  border-radius: 25px;
+  background-color: #cddef6;
+  width: 45px;
+  height: 45px;
+  margin: 10px;
+  cursor: pointer;
+  align-items: center;
+  display: flex;
+  justify-content: center;
+  flex-direction: row;
+  font-family: "Roboto", sans-serif;
+  font-size: 25px;
+}
+
+.small-container p {
+  font-family: "Roboto", sans-serif;
+  font-size: 16px;
+  font-weight: 400;
+  color: #3d4043;
+  text-align: center;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  max-height: 60px;
+  overflow: hidden;
+  padding-right: 10px;
+  padding-left: 10px;
+}
+
+.small-container:hover {
+  transform: scale(1.1, 1.1);
+}
+
+@media only screen and (max-width: 768px) {
+  .small-container {
+    margin: 5px;
+    height: 120px;
+  }
+
+  .ticket-number {
+    width: 18px;
+    height: 18px;
+    margin: 3px;
+    font-size: 10px;
+  }
+
+  .small-container p {
+    font-size: 8px;
+  }
+
+  .small-container h1 {
+    font-size: 12.5px;
+  }
+}

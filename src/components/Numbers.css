@@ -1,0 +1,43 @@
+.number-btn {
+    width: 65px;
+    height: 65px;
+    background-color: white;
+    border-radius: 15px;
+    margin: 15px 15px;
+    text-align: center;
+    font-family: "Roboto", sans-serif;
+    font-weight: 700;
+    font-size: 30px;
+    border: none;
+    color: #3d4043;
+    cursor: pointer;
+    transform: scale(1, 1);
+    transition: transform 0.5s ease;
+    text-transform: uppercase;
+  }
+  
+  .number-btn:hover {
+    transform: scale(1.1, 1.1);
+  }
+
+  .active-number-btn {
+    width: 65px;
+    height: 65px;
+    background-color: green;
+    border-radius: 15px;
+    margin: 15px 15px;
+    text-align: center;
+    font-family: "Roboto", sans-serif;
+    font-weight: 700;
+    font-size: 30px;
+    border: none;
+    color: #3d4043;
+    cursor: pointer;
+    transform: scale(1, 1);
+    transition: transform 0.5s ease;
+    text-transform: uppercase;
+  }
+  
+  .active-number-btn:hover {
+    transform: scale(1.1, 1.1);
+  }
