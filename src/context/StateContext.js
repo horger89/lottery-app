@@ -23,12 +23,15 @@ export const StateContext = ({ children }) => {
   const [operatorTickets, setOperatorTickets] = useState([]);
   //Quantity form
   const [amountToAdd, setAmountToAdd] = useState(0);
-  console.log(amountToAdd);
   const [showForm, setShowForm] = useState(false);
   //Winning Numbers
   const [isDrawn, setIsDrawn] = useState(false);
-  console.log(isDrawn);
   const [winningNumbers, setWinningNumbers] = useState([]);
+  //Winning Tickets
+  const [winningUserTickets, setWinningUserTickets] = useState([]);
+  const [winningOperatorTickets, setWinningOperatorTickets] = useState([]);
+  console.log(winningOperatorTickets);
+  console.log(winningUserTickets);
 
   //HANDLERS
 
@@ -111,6 +114,35 @@ export const StateContext = ({ children }) => {
     }
     setWinningNumbers(numbers);
     setIsDrawn(true);
+
+    const userResultArrays = [];
+    const operatorResultArrays = [];
+    for (const array of userTickets) {
+      let matchingCount = 0;
+      for (const element of array) {
+        if (numbers.includes(element)) {
+          matchingCount++;
+        }
+      }
+
+      if (matchingCount >= 2) {
+        userResultArrays.push(array);
+      }
+    }
+    setWinningUserTickets(userResultArrays);
+    for (const array of operatorTickets) {
+      let matchingCount = 0;
+      for (const element of array) {
+        if (numbers.includes(element)) {
+          matchingCount++;
+        }
+      }
+
+      if (matchingCount >= 2) {
+        operatorResultArrays.push(array);
+      }
+    }
+    setWinningOperatorTickets(operatorResultArrays);
   };
 
   return (
@@ -138,7 +170,11 @@ export const StateContext = ({ children }) => {
         showFromHandler,
         isDrawn,
         WinningTicketGenerator,
-        winningNumbers
+        winningNumbers,
+        setWinningUserTickets,
+        setWinningOperatorTickets,
+        winningOperatorTickets,
+        winningUserTickets,
       }}
     >
       {children}

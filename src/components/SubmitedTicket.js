@@ -1,16 +1,31 @@
 import React from "react";
 import "./SubmitedTicket.css";
+import TicketNumber from "./TicketNumber";
+import { useStateContext } from "../context/StateContext";
 
 const SingleTicket = ({ ticket, user }) => {
+  const { winningNumbers } = useStateContext();
+
+  const countMatchingElements = (array1, array2) => {
+    let matchingCount = 0;
+    for (const element of array2) {
+      if (array1.includes(element)) {
+        matchingCount++;
+      }
+    }
+
+    return matchingCount;
+  };
+
+  const matchingCount = countMatchingElements(ticket, winningNumbers);
+
   return (
     <div className="small-container">
-      <h1>Winning: 100</h1>
+      <h1>Winning: {matchingCount}</h1>
       <div className="ticket">
-        <div className="ticket-number">{ticket[0]}</div>
-        <div className="ticket-number">{ticket[1]}</div>
-        <div className="ticket-number">{ticket[2]}</div>
-        <div className="ticket-number">{ticket[3]}</div>
-        <div className="ticket-number">{ticket[4]}</div>
+        {ticket.map((number) => (
+          <TicketNumber key={number} number={number} />
+        ))}
       </div>
       <p>Player: {user}</p>
     </div>
