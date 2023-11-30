@@ -1,14 +1,12 @@
 import React from "react";
-import "./Tickets.css";
-import { useStateContext } from "../context/StateContext";
 import AllTickets from "./AllTickets";
+import { useStateContext } from "../context/StateContext";
+import WinningTickets from "./WinningTickets";
 
 const Tickets = () => {
-  return (
-    <div>
-      <AllTickets />
-    </div>
-  );
+  const { isDrawn } = useStateContext();
+
+  return <div>{!isDrawn ? <AllTickets /> : <WinningTickets />}</div>;
 };
 
 export default Tickets;

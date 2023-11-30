@@ -23,14 +23,15 @@ const AllTickets = () => {
       <div className="desc-cont">{isOperator ? <Operator /> : <User />}</div>
       <div className="articles">
         {userTickets.map((ticket) => (
-          <SingleTicket key={ticket.id} user={enteredName} ticket={ticket} />
+          <SingleTicket key={ticket.id} user={enteredName} ticket={ticket.userTicket} id={ticket.id}/>
         ))}
         {isOperator &&
           operatorTickets.map((operatorticket) => (
             <SingleTicket
               key={operatorticket.id}
               user="Operator Generated"
-              ticket={operatorticket}
+              ticket={operatorticket.operatorTicket}
+              id={operatorticket.id}
             />
           ))}
       </div>
