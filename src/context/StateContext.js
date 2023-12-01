@@ -31,16 +31,119 @@ export const StateContext = ({ children }) => {
   const [winningUserTickets, setWinningUserTickets] = useState([]);
   const [winningOperatorTickets, setWinningOperatorTickets] = useState([]);
   const [winningArray, setWinningArray] = useState([]);
-  //new
   const [userWinningArray, setUserWinningArray] = useState([]);
-  //
   const [organizedArray, setOrganizedArray] = useState([]);
-  //new
   const [userOrganizedArray, setUserOrganizedArray] = useState([]);
-  console.log(userOrganizedArray);
-  //
   const [payOuts, setPayOuts] = useState([]);
-  console.log(payOuts);
+
+  //Local Storage custom hook
+
+  const useLocalStorage = (key, initialValue) => {
+    const [storedValue, setStoredValue] = useState(() => {
+      try {
+        const item = window.localStorage.getItem(key);
+        return item ? JSON.parse(item) : initialValue;
+      } catch (err) {
+        console.error(err);
+        return initialValue;
+      }
+    });
+
+    const setValue = (value) => {
+      try {
+        const valueToStore =
+          value instanceof Function ? value(storedValue) : value;
+        setStoredValue(valueToStore);
+        window.localStorage.setItem(key, JSON.stringify(valueToStore));
+      } catch (err) {
+        console.error(err);
+      }
+    };
+    return [storedValue, setValue];
+  };
+
+  //Stored states in local storage
+  const [enteredNameCompleteStored, setEnteredNameCompleteStored] =
+    useLocalStorage("enteredNameComplete", false);
+  const [showFormStored, setShowFormStored] = useLocalStorage(
+    "showForm",
+    false
+  );
+  const [enteredNameStored, setEnteredNameStored] = useLocalStorage(
+    "enteredName",
+    ""
+  );
+  const [userBalanceStored, setUserBalanceStored] = useLocalStorage(
+    "userBalance",
+    1000
+  );
+  const [userWinningsStored, setUserWinningsStored] = useLocalStorage(
+    "userWinnings",
+    0
+  );
+  const [pricePotStored, setPricePotStored] = useLocalStorage("pricePot", 0);
+  const [profitStored, setProfitStored] = useLocalStorage("profit", 0);
+  const [payedOutStored, setPayedOutStored] = useLocalStorage("payedOut", 0);
+  const [userNumbersStored, setUserNumbersStored] = useLocalStorage(
+    "userNumbers",
+    []
+  );
+  const [userTicketsStored, setUserTicketsStored] = useLocalStorage(
+    "userTickets",
+    []
+  );
+  const [operatorTicketsStored, setOperatorTicketsStored] = useLocalStorage(
+    "operatorTickets",
+    []
+  );
+  const [isDrawnStored, setIsDrawnStored] = useLocalStorage("isDrawn", false);
+  const [winningNumbersStored, setWinningNumbersStored] = useLocalStorage(
+    "winningNumbers",
+    []
+  );
+  const [winningUserTicketsStored, setWinningUserTicketsStored] =
+    useLocalStorage("winningUserTickets", []);
+  const [winningOperatorTicketsStored, setWinningOperatorTicketsStored] =
+    useLocalStorage("winningOperatorTickets", []);
+  const [winningArrayStored, setWinningArrayStored] = useLocalStorage(
+    "winningArray",
+    []
+  );
+  const [userWinningArrayStored, setUserWinningArrayStored] = useLocalStorage(
+    "userWinningArray",
+    []
+  );
+  const [organizedArrayStored, setOrganizedArrayStored] = useLocalStorage(
+    "organizedArray",
+    []
+  );
+  const [userOrganizedArrayStored, setUserOrganizedArrayStored] =
+    useLocalStorage("userOrganizedArray", []);
+  const [payOutsStored, setPayOutsStored] = useLocalStorage("payOuts", []);
+
+  //Render states from local storage
+  useEffect(() => {
+    setEnteredName(enteredNameStored);
+    setUserBalance(userBalanceStored);
+    setUserWinnings(userWinningsStored);
+    setPricePot(pricePotStored);
+    setProfit(profitStored);
+    setPayedOut(payedOutStored);
+    setUserNumbers(userNumbersStored);
+    setUserTickets(userTicketsStored);
+    setOperatorTickets(operatorTicketsStored);
+    setIsDrawn(isDrawnStored);
+    setWinningNumbers(winningNumbersStored);
+    setWinningUserTickets(winningUserTicketsStored);
+    setWinningOperatorTickets(winningOperatorTicketsStored);
+    setWinningArray(winningArrayStored);
+    setUserWinningArray(userWinningArrayStored);
+    setOrganizedArray(organizedArrayStored);
+    setUserOrganizedArray(userOrganizedArrayStored);
+    setPayOuts(payOutsStored);
+    setShowForm(showFormStored);
+    setEnteredNameComplete(enteredNameCompleteStored);
+  }, []);
 
   //HANDLERS AND OTHER FUNCTIONS
 
@@ -51,7 +154,8 @@ export const StateContext = ({ children }) => {
     };
     const TotalProfit = calculateProfit(pricePot, payedOut);
     setProfit(TotalProfit);
-  }, [payedOut]);
+    setProfitStored(TotalProfit);
+  }, [payedOut, pricePot]);
 
   useEffect(() => {
     const calculateRevenue = (array1, array2) => {
@@ -64,18 +168,22 @@ export const StateContext = ({ children }) => {
     };
     const final = calculateRevenue(userOrganizedArray, payOuts);
     setUserWinnings(final);
+    setUserWinningsStored(final);
     const finalBalance = userBalance + final;
     setUserBalance(finalBalance);
-  }, [payedOut]);
+    setUserBalanceStored(finalBalance);
+  }, [payOuts, userOrganizedArray]);
 
   const nameInputChangeHandler = (event) => {
     setEnteredName(event.target.value);
+    setEnteredNameStored(event.target.value);
   };
 
   const formSubmissionHandler = (event) => {
     event.preventDefault();
     if (enteredNameIsValid) {
       setEnteredNameComplete(true);
+      setEnteredNameCompleteStored(true);
     }
   };
 
@@ -84,11 +192,13 @@ export const StateContext = ({ children }) => {
 
     if (!checkItemInNumbers && userNumbers.length < 5) {
       setUserNumbers([...userNumbers, number]);
+      setUserNumbersStored([...userNumbers, number]);
     } else {
       const arrayWithoutNumber = userNumbers.filter(function (unique) {
         return unique !== number;
       });
       setUserNumbers(arrayWithoutNumber);
+      setUserNumbersStored(arrayWithoutNumber);
     }
   };
 
@@ -98,14 +208,21 @@ export const StateContext = ({ children }) => {
         ...userTickets,
         { id: userTickets.length + 1, userTicket: userNumbers },
       ]);
+      setUserTicketsStored([
+        ...userTickets,
+        { id: userTickets.length + 1, userTicket: userNumbers },
+      ]);
       setUserBalance(userBalance - 1000);
       setUserNumbers([]);
+      setUserNumbersStored([]);
       setPricePot(pricePot + 1000);
+      setPricePotStored(pricePot + 1000);
     }
   };
 
   const showFromHandler = () => {
     setShowForm(true);
+    // setShowFormStored(true);
   };
 
   const amountIsValid = (amountToAdd) => {
@@ -140,8 +257,12 @@ export const StateContext = ({ children }) => {
 
       updatedOperatorTickets.push(...randomArrays);
       setOperatorTickets(updatedOperatorTickets);
+      setOperatorTicketsStored(updatedOperatorTickets);
       setPricePot(pricePot + amountToAdd * 1000);
+      setPricePotStored(pricePot + amountToAdd * 1000);
+
       setShowForm(false);
+      setShowFormStored(false);
       setAmountToAdd(0);
     }
   };
@@ -157,7 +278,9 @@ export const StateContext = ({ children }) => {
     }
 
     setWinningNumbers(numbers);
+    setWinningNumbersStored(numbers);
     setIsDrawn(true);
+    setIsDrawnStored(true);
 
     const userResultArrays = [];
     const operatorResultArrays = [];
@@ -186,6 +309,7 @@ export const StateContext = ({ children }) => {
     }
 
     setWinningUserTickets(userResultArrays);
+    setWinningUserTicketsStored(userResultArrays);
 
     for (const operatorTicket of operatorTickets) {
       const { operatorTicket: ticket } = operatorTicket;
@@ -204,10 +328,12 @@ export const StateContext = ({ children }) => {
     }
 
     setWinningOperatorTickets(operatorResultArrays);
+    setWinningOperatorTicketsStored(operatorResultArrays);
     setWinningArray(matchingArray);
-    //new
+    setWinningArrayStored(matchingArray);
+
     setUserWinningArray(userMatcingArray);
-    //
+    setUserWinningArrayStored(userMatcingArray);
   };
 
   useEffect(() => {
@@ -233,13 +359,14 @@ export const StateContext = ({ children }) => {
     };
 
     const organized = organizeWinningTickets(winningArray);
-    //new
+
     const userOrganized = organizeWinningTickets(userWinningArray);
-    //
+
     setOrganizedArray(organized);
-    //new
+    setOrganizedArrayStored(organized);
+
     setUserOrganizedArray(userOrganized);
-    //
+    setUserOrganizedArrayStored(userOrganized);
 
     const calculatePayOuts = (winningTickets, totalRevenue) => {
       const priceToPay = [];
@@ -262,7 +389,8 @@ export const StateContext = ({ children }) => {
     };
     const Pay = calculatePayOuts(organized, pricePot);
     setPayOuts(Pay);
-  }, [winningArray]);
+    setPayOutsStored(Pay);
+  }, [winningArray, pricePot, userWinningArray]);
 
   return (
     <Context.Provider
@@ -298,6 +426,7 @@ export const StateContext = ({ children }) => {
         winningArray,
         organizedArray,
         setPayedOut,
+        setPayedOutStored,
         setUserWinnings,
         setUserBalance,
       }}

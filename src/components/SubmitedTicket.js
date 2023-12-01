@@ -10,8 +10,7 @@ const SingleTicket = ({ ticket, user, id }) => {
     payOuts,
     organizedArray,
     setPayedOut,
-    userWinnings,
-    setUserWinnings,
+    setPayedOutStored,
   } = useStateContext();
   const [winning, setWinning] = useState(0);
 
@@ -74,7 +73,8 @@ const SingleTicket = ({ ticket, user, id }) => {
     const TotalPayOut = winningPayedOut(payOuts, organizedArray);
 
     setPayedOut(TotalPayOut);
-  }, [winningNumbers, payOuts, ticket]);
+    setPayedOutStored(TotalPayOut);
+  }, [winningNumbers, payOuts, ticket, organizedArray, setPayedOut]);
 
   return (
     <div className="small-container">
