@@ -16,7 +16,6 @@ export const StateContext = ({ children }) => {
   const [pricePot, setPricePot] = useState(0);
   const [profit, setProfit] = useState(0);
   const [payedOut, setPayedOut] = useState(0);
-  console.log(payedOut);
   // User Numbers and tickets
   const [userNumbers, setUserNumbers] = useState([]);
   const [userTickets, setUserTickets] = useState([]);
@@ -32,8 +31,14 @@ export const StateContext = ({ children }) => {
   const [winningUserTickets, setWinningUserTickets] = useState([]);
   const [winningOperatorTickets, setWinningOperatorTickets] = useState([]);
   const [winningArray, setWinningArray] = useState([]);
+  //new
+  const [userWinningArray, setUserWinningArray] = useState([]);
+  //
   const [organizedArray, setOrganizedArray] = useState([]);
-  console.log(organizedArray);
+  //new
+  const [userOrganizedArray, setUserOrganizedArray] = useState([]);
+  console.log(userOrganizedArray);
+  //
   const [payOuts, setPayOuts] = useState([]);
   console.log(payOuts);
 
@@ -46,6 +51,21 @@ export const StateContext = ({ children }) => {
     };
     const TotalProfit = calculateProfit(pricePot, payedOut);
     setProfit(TotalProfit);
+  }, [payedOut]);
+
+  useEffect(() => {
+    const calculateRevenue = (array1, array2) => {
+      let total = 0;
+      for (let i = 0; i < array1.length; i++) {
+        let multi = array1[i] * array2[i];
+        total += multi;
+      }
+      return total;
+    };
+    const final = calculateRevenue(userOrganizedArray, payOuts);
+    setUserWinnings(final);
+    const finalBalance = userBalance + final;
+    setUserBalance(finalBalance);
   }, [payedOut]);
 
   const nameInputChangeHandler = (event) => {
@@ -142,6 +162,9 @@ export const StateContext = ({ children }) => {
     const userResultArrays = [];
     const operatorResultArrays = [];
     const matchingArray = [];
+    //new
+    const userMatcingArray = [];
+    //
 
     for (const userTicket of userTickets) {
       const { userTicket: ticket } = userTicket;
@@ -156,6 +179,9 @@ export const StateContext = ({ children }) => {
       if (matchingCount >= 2) {
         userResultArrays.push(userTicket);
         matchingArray.push(matchingCount);
+        //new
+        userMatcingArray.push(matchingCount);
+        //
       }
     }
 
@@ -179,6 +205,9 @@ export const StateContext = ({ children }) => {
 
     setWinningOperatorTickets(operatorResultArrays);
     setWinningArray(matchingArray);
+    //new
+    setUserWinningArray(userMatcingArray);
+    //
   };
 
   useEffect(() => {
@@ -204,7 +233,13 @@ export const StateContext = ({ children }) => {
     };
 
     const organized = organizeWinningTickets(winningArray);
+    //new
+    const userOrganized = organizeWinningTickets(userWinningArray);
+    //
     setOrganizedArray(organized);
+    //new
+    setUserOrganizedArray(userOrganized);
+    //
 
     const calculatePayOuts = (winningTickets, totalRevenue) => {
       const priceToPay = [];
@@ -263,6 +298,8 @@ export const StateContext = ({ children }) => {
         winningArray,
         organizedArray,
         setPayedOut,
+        setUserWinnings,
+        setUserBalance,
       }}
     >
       {children}

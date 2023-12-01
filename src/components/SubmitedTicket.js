@@ -10,6 +10,8 @@ const SingleTicket = ({ ticket, user, id }) => {
     payOuts,
     organizedArray,
     setPayedOut,
+    userWinnings,
+    setUserWinnings,
   } = useStateContext();
   const [winning, setWinning] = useState(0);
 
@@ -26,7 +28,7 @@ const SingleTicket = ({ ticket, user, id }) => {
 
     const count = countMatchingElements(ticket, winningNumbers);
 
-    function founder(inputNumber, myList) {
+    const founder = (inputNumber, myList) => {
       let index;
 
       switch (inputNumber) {
@@ -51,7 +53,7 @@ const SingleTicket = ({ ticket, user, id }) => {
       } else {
         return 0;
       }
-    }
+    };
 
     const winningCalculated = founder(count, payOuts);
 
