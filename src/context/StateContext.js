@@ -179,7 +179,7 @@ export const StateContext = ({ children }) => {
     const TotalProfit = calculateProfit(pricePot, payedOut);
     setProfit(TotalProfit);
     setProfitStored(TotalProfit);
-  }, [payedOut]);
+  }, [winningArray]);
 
   useEffect(() => {
     const calculateRevenue = (array1, array2) => {
