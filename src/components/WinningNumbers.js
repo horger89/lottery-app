@@ -3,7 +3,7 @@ import "./WinningNumbers.css";
 import { useStateContext } from "../context/StateContext";
 
 const WinningNumbers = () => {
-  const { winningNumbers } = useStateContext();
+  const { winningNumbers, NewGameHAndler } = useStateContext();
   return (
     <div className="winning-container">
       <h1>Winning Numbers</h1>
@@ -14,7 +14,9 @@ const WinningNumbers = () => {
         <div className="numbers">{winningNumbers[3]}</div>
         <div className="numbers">{winningNumbers[4]}</div>
       </div>
-      <button className="winning-btn">Start New Game</button>
+      <button onClick={NewGameHAndler} className="winning-btn">
+        Start New Game
+      </button>
     </div>
   );
 };

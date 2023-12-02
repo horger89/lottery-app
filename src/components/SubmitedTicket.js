@@ -57,7 +57,7 @@ const SingleTicket = ({ ticket, user, id }) => {
     const winningCalculated = founder(count, payOuts);
 
     setWinning(winningCalculated);
-  }, [winningNumbers, payOuts, ticket]);
+  }, [payOuts]);
 
   useEffect(() => {
     const winningPayedOut = (xList, yList) => {
@@ -74,7 +74,7 @@ const SingleTicket = ({ ticket, user, id }) => {
 
     setPayedOut(TotalPayOut);
     setPayedOutStored(TotalPayOut);
-  }, [winningNumbers, payOuts, ticket, organizedArray, setPayedOut]);
+  }, [payOuts]);
 
   return (
     <div className="small-container">
