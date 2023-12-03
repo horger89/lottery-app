@@ -17,18 +17,18 @@ const Navbar = () => {
   return (
     <div className="info">
       {isOperator ? (
-        <p>Operator Mode</p>
+        <p>Operator</p>
       ) : enteredNameComplete ? (
         <p>Welcome {enteredName}</p>
       ) : (
         <p>Welcome</p>
       )}
       <nav>
-        {!isOperator && <p>Balance: {userBalance + userWinnings} Tokens</p>}
-        {!isOperator && <p>Winnings: {userWinnings} Tokens</p>}
-        {isOperator && <p>Price Pot: {pricePot} Tokens</p>}
-        {isOperator && <p>Winnings Payed Out: {payedOut} Tokens</p>}
-        {isOperator && <p>Profit: {profit} Tokens</p>}
+        {!isOperator && <p>Balance: {userBalance + userWinnings}</p>}
+        {!isOperator && <p>Winnings: {userWinnings}</p>}
+        {isOperator && <p>Price Pot: {pricePot}</p>}
+        {isOperator && <p>Payed Out: {payedOut}</p>}
+        {isOperator && <p>Profit: {profit}</p>}
       </nav>
     </div>
   );
