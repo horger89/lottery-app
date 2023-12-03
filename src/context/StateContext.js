@@ -177,8 +177,8 @@ export const StateContext = ({ children }) => {
         const z = x - y;
         return z;
       } else {
-        setProfit(0);
-        setProfitStored(0);
+        const z = 0
+        return z
       }
     };
     const TotalProfit = calculateProfit(pricePot, payedOut);
