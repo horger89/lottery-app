@@ -128,14 +128,14 @@
   }
 
   .btn-play-operator {
-    width: 125px;
+    width: 135px;
     height: 40px;
-    font-size: 12px;
+    font-size: 15px;
   }
   .center-button {
     padding-top: 7px;
   }
   .operator-btns {
-    margin: 10px 10px;
+    margin: 7px 7px;
   }
 }
