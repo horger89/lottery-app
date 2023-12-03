@@ -9,10 +9,10 @@ const Player = () => {
     <div>
       {!enteredNameComplete && <UserName />}
       <div className="options">
-        <button onClick={() => setIsOperator(false)} className="btn">
+        <button onClick={() => setIsOperator(false)} className="btn-who">
           User
         </button>
-        <button onClick={() => setIsOperator(true)} className="btn">
+        <button onClick={() => setIsOperator(true)} className="btn-who">
           Operator
         </button>
       </div>

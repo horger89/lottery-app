@@ -34,7 +34,7 @@
 
 input[type="text"] {
   width: 350px;
-  height: 30px;
+  height: 40px;
   border: 1px solid #ccc;
   border-radius: 4px;
   text-align: center;
@@ -43,12 +43,12 @@ input[type="text"] {
   font-size: 20px;
 }
 
-.btn {
-  width: 100px;
+.btn-modal {
+  width: 300px;
   padding: 10px 12px;
   border-radius: 15px;
   border: none;
-  font-size: 10px;
+  font-size: 25px;
   text-transform: uppercase;
   background-color: #2d44f0;
   color: #fff;
@@ -59,6 +59,20 @@ input[type="text"] {
   font-family: "Roboto", sans-serif;
 }
 
-.btn:hover {
+.btn-modal:hover {
   transform: scale(1.1, 1.1);
+}
+
+@media only screen and (max-width: 768px) {
+  input[type="text"] {
+    width: 200px;
+  }
+  .modal-content h1 {
+    font-size: 20px;
+  }
+
+  .btn-modal {
+    width: 200px;
+    font-size: 20px;
+  }
 }

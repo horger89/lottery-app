@@ -17,7 +17,7 @@ const UserName = () => {
             name="name"
           />
           <div>
-            <button className="btn">Submit</button>
+            <button className="btn-modal">Submit</button>
           </div>
         </div>
       </div>

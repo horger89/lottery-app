@@ -66,5 +66,28 @@
   font-size: 60px;
   border: none;
   color: #3d4043;
-  
+}
+
+@media only screen and (max-width: 768px) {
+  .numbers {
+    width: 42px;
+    height: 37px;
+    font-size: 25px;
+    margin: 6px 6px;
+  }
+
+  .winning-container h1 {
+    font-size: 35px;
+    padding-bottom: 10px;
+  }
+  .winning-btn {
+    width: 260px;
+    font-size: 20px;
+  }
+  .winning-numbers {
+    padding-bottom: 10px;
+  }
+  .winning-container {
+    height: 250px;
+  }
 }

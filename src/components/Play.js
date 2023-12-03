@@ -36,7 +36,7 @@ const Play = () => {
           )}
           {!isOperator && (
             <div className="center-button">
-              <button type="submit" className="btn" onClick={addTicket}>
+              <button type="submit" className="btn-play" onClick={addTicket}>
                 Submit
               </button>
             </div>
@@ -44,12 +44,12 @@ const Play = () => {
           {isOperator && <h1>Operator Tasks</h1>}
           <div className="operator-btns">
             {isOperator && (
-              <button onClick={WinningTicketGenerator} className="btn">
+              <button onClick={WinningTicketGenerator} className="btn-play-operator">
                 Draw Numbers
               </button>
             )}
             {isOperator && (
-              <button onClick={showFromHandler} className="btn">
+              <button onClick={showFromHandler} className="btn-play-operator">
                 Create Tickets
               </button>
             )}

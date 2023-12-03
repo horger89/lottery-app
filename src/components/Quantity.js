@@ -12,7 +12,7 @@ const Quantity = () => {
           <h1>How many tickets would you like to create?</h1>
           <input onChange={amountInputChangeHandler} type="number" />
           <div>
-            <button className="btn">Submit</button>
+            <button className="btn-quantity">Submit</button>
           </div>
         </div>
       </div>

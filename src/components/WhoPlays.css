@@ -2,7 +2,7 @@
   text-align: center;
 }
 
-.btn {
+.btn-who {
   width: 180px;
   padding: 10px 12px;
   border-radius: 15px;
@@ -18,14 +18,14 @@
   font-family: "Roboto", sans-serif;
 }
 
-.btn:hover {
+.btn-who:hover {
   transform: scale(1.1, 1.1);
 }
 
 @media only screen and (max-width: 768px) {
-  .btn {
-    width: 100px;
-    font-size: 8px;
-    margin: 2px 2px;
+  .btn-who {
+    width: 120px;
+    font-size: 15px;
+    margin: 8px 8px;
   }
 }
