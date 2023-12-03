@@ -135,4 +135,7 @@
   .center-button {
     padding-top: 15px;
   }
+  .operator-btns {
+    margin: 10px 10px;
+  }
 }
