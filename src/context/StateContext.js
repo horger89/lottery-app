@@ -173,8 +173,13 @@ export const StateContext = ({ children }) => {
 
   useEffect(() => {
     const calculateProfit = (x, y) => {
-      const z = x - y;
-      return z;
+      if (isDrawn === true) {
+        const z = x - y;
+        return z;
+      } else {
+        setProfit(0);
+        setProfitStored(0);
+      }
     };
     const TotalProfit = calculateProfit(pricePot, payedOut);
     setProfit(TotalProfit);

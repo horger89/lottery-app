@@ -12,7 +12,6 @@ const Navbar = () => {
     pricePot,
     profit,
     payedOut,
-    isDrawn,
   } = useStateContext();
 
   return (
