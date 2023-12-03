@@ -66,6 +66,7 @@ input[type="text"] {
 @media only screen and (max-width: 768px) {
   input[type="text"] {
     width: 200px;
+    height: 35px;
   }
   .modal-content h1 {
     font-size: 20px;
@@ -74,6 +75,6 @@ input[type="text"] {
   .btn-modal {
     width: 170px;
     font-size: 20px;
-    height: 30px;
+    height: 35px;
   }
 }
