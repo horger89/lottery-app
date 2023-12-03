@@ -9,9 +9,9 @@ import { StateContext } from "./context/StateContext";
 const App = () => {
   return (
     <StateContext>
-      <Player />
       <Navbar />
       <Play />
+      <Player />
       <Tickets />
       <Footer />
     </StateContext>
