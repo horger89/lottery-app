@@ -25,7 +25,7 @@ const WinningTickets = () => {
   };
   const Operator = () => {
     return isOperatorWinningTickets ? (
-      <h1>Winning Tickets ({winningOperatorTickets.length})</h1>
+      <h1>Winning Tickets ({winningOperatorTickets.length + winningUserTickets.length})</h1>
     ) : (
       <h1>No Winning Tickets</h1>
     );
@@ -91,22 +91,22 @@ const WinningTickets = () => {
         )}
         {organizedArray[3] > 0 && (
           <button onClick={TwoMatchessHandler} className="filter-btn">
-            2 Matches
+            2 Matches ({organizedArray[3]})
           </button>
         )}
         {organizedArray[2] > 0 && (
           <button onClick={ThreeMAtchesHandler} className="filter-btn">
-            3 Matches
+            3 Matches ({organizedArray[2]})
           </button>
         )}
         {organizedArray[1] > 0 && (
           <button onClick={FourMatchesHandler} className="filter-btn">
-            4 Matches
+            4 Matches ({organizedArray[1]})
           </button>
         )}
         {organizedArray[0] > 0 && (
           <button onClick={FiveMatchesHandler} className="filter-btn">
-            5 Matches
+            5 Matches ({organizedArray[0]})
           </button>
         )}
       </div>
@@ -122,22 +122,22 @@ const WinningTickets = () => {
         )}
         {userOrganizedArray[3] > 0 && (
           <button onClick={TwoMatchessHandler} className="filter-btn">
-            2 Matches
+            2 Matches ({userOrganizedArray[3]})
           </button>
         )}
         {userOrganizedArray[2] > 0 && (
           <button onClick={ThreeMAtchesHandler} className="filter-btn">
-            3 Matches
+            3 Matches ({userOrganizedArray[2]})
           </button>
         )}
         {userOrganizedArray[1] > 0 && (
           <button onClick={FourMatchesHandler} className="filter-btn">
-            4 Matches
+            4 Matches ({userOrganizedArray[1]})
           </button>
         )}
         {userOrganizedArray[0] > 0 && (
           <button onClick={FiveMatchesHandler} className="filter-btn">
-            5 Matches
+            5 Matches ({userOrganizedArray[0]})
           </button>
         )}
       </div>

@@ -32,11 +32,11 @@
 }
 
 .filter-btn {
-  width: 100px;
+  width: 150px;
   padding: 5px 6px;
   border-radius: 15px;
   border: none;
-  font-size: 12px;
+  font-size: 15px;
   text-transform: uppercase;
   background-color: #2d44f0;
   color: #fff;
@@ -52,6 +52,10 @@
 }
 
 @media only screen and (max-width: 768px) {
+  .filter-btn {
+    width: 110px;
+    font-size: 12px;
+  }
   .desc-cont {
     margin-top: 25px;
     height: 20px;
