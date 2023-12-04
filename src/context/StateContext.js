@@ -177,8 +177,8 @@ export const StateContext = ({ children }) => {
         const z = x - y;
         return z;
       } else {
-        const z = 0
-        return z
+        const z = 0;
+        return z;
       }
     };
     const TotalProfit = calculateProfit(pricePot, payedOut);
@@ -325,6 +325,9 @@ export const StateContext = ({ children }) => {
       }
 
       if (matchingCount >= 2) {
+        //new
+        userTicket.matching = matchingCount;
+        //
         userResultArrays.push(userTicket);
         matchingArray.push(matchingCount);
 
@@ -346,6 +349,9 @@ export const StateContext = ({ children }) => {
       }
 
       if (matchingCount >= 2) {
+        //new
+        operatorTicket.matching = matchingCount;
+        //
         operatorResultArrays.push(operatorTicket);
         matchingArray.push(matchingCount);
       }
@@ -449,6 +455,7 @@ export const StateContext = ({ children }) => {
         payOuts,
         winningArray,
         organizedArray,
+        userOrganizedArray,
         setPayedOut,
         setPayedOutStored,
         setUserWinnings,

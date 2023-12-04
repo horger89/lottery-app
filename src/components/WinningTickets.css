@@ -22,6 +22,35 @@
   margin-bottom: 50px;
 }
 
+.filter {
+  text-align: center;
+  display: flex;
+  position: relative;
+  flex-direction: row;
+  justify-content: center;
+  padding-top: 10px;
+}
+
+.filter-btn {
+  width: 100px;
+  padding: 5px 6px;
+  border-radius: 15px;
+  border: none;
+  font-size: 12px;
+  text-transform: uppercase;
+  background-color: #2d44f0;
+  color: #fff;
+  cursor: pointer;
+  transform: scale(1, 1);
+  transition: transform 0.5s ease;
+  margin: 5px 5px;
+  font-family: "Roboto", sans-serif;
+}
+
+.filter-btn:hover {
+  transform: scale(1.1, 1.1);
+}
+
 @media only screen and (max-width: 768px) {
   .desc-cont {
     margin-top: 25px;
