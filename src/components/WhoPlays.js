@@ -4,15 +4,24 @@ import { useStateContext } from "../context/StateContext";
 import UserName from "./UserName";
 
 const Player = () => {
-  const { setIsOperator, enteredNameComplete } = useStateContext();
+  const { setIsOperator, enteredNameComplete, setIsOperatorStored } =
+    useStateContext();
+  const UserHandler = () => {
+    setIsOperator(false);
+    setIsOperatorStored(false);
+  };
+  const OperatorHandler = () => {
+    setIsOperator(true);
+    setIsOperatorStored(true);
+  };
   return (
     <div>
       {!enteredNameComplete && <UserName />}
       <div className="options">
-        <button onClick={() => setIsOperator(false)} className="btn-who">
+        <button onClick={UserHandler} className="btn-who">
           User
         </button>
-        <button onClick={() => setIsOperator(true)} className="btn-who">
+        <button onClick={OperatorHandler} className="btn-who">
           Operator
         </button>
       </div>

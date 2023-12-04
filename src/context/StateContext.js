@@ -65,6 +65,10 @@ export const StateContext = ({ children }) => {
   };
 
   //Stored states in local storage
+  const [isOperatorStored, setIsOperatorStored] = useLocalStorage(
+    "isOperator",
+    false
+  );
   const [enteredNameCompleteStored, setEnteredNameCompleteStored] =
     useLocalStorage("enteredNameComplete", false);
   const [showFormStored, setShowFormStored] = useLocalStorage(
@@ -125,6 +129,7 @@ export const StateContext = ({ children }) => {
 
   //Render states from local storage
   useEffect(() => {
+    setIsOperator(isOperatorStored);
     setEnteredName(enteredNameStored);
     setUserBalance(userBalanceStored);
     setUserWinnings(userWinningsStored);
@@ -465,6 +470,7 @@ export const StateContext = ({ children }) => {
         NewGameHAndler,
         showInfo,
         setShowInfo,
+        setIsOperatorStored,
       }}
     >
       {children}
