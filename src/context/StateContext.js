@@ -35,6 +35,8 @@ export const StateContext = ({ children }) => {
   const [organizedArray, setOrganizedArray] = useState([]);
   const [userOrganizedArray, setUserOrganizedArray] = useState([]);
   const [payOuts, setPayOuts] = useState([]);
+  //Info
+  const [showInfo, setShowInfo] = useState(false);
 
   //Local Storage custom hook
 
@@ -461,6 +463,8 @@ export const StateContext = ({ children }) => {
         setUserWinnings,
         setUserBalance,
         NewGameHAndler,
+        showInfo,
+        setShowInfo,
       }}
     >
       {children}

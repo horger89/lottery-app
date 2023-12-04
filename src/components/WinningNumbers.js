@@ -1,9 +1,15 @@
 import React from "react";
 import "./WinningNumbers.css";
 import { useStateContext } from "../context/StateContext";
+import Info from "./Info";
 
 const WinningNumbers = () => {
-  const { winningNumbers, NewGameHAndler } = useStateContext();
+  const { winningNumbers, NewGameHAndler, setShowInfo, showInfo } =
+    useStateContext();
+
+  const OpenInfo = () => {
+    setShowInfo(true);
+  };
   return (
     <div className="winning-container">
       <h1>Winning Numbers</h1>
@@ -17,6 +23,10 @@ const WinningNumbers = () => {
       <button onClick={NewGameHAndler} className="winning-btn">
         Start New Game
       </button>
+      <button onClick={OpenInfo} className="info-btn">
+        Info
+      </button>
+      {showInfo && <Info />}
     </div>
   );
 };
