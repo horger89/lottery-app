@@ -103,7 +103,7 @@
 
 @media only screen and (max-width: 768px) {
   .container {
-    height: 590px;
+    height: 580px;
     padding-top: 15px;
   }
 
@@ -124,7 +124,7 @@
   }
 
   .operator-container {
-    height: 170px;
+    height: 160px;
   }
 
   .btn-play-operator {
