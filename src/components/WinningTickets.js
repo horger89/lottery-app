@@ -18,14 +18,14 @@ const WinningTickets = () => {
 
   const User = () => {
     return isUserWinningTicket ? (
-      <h1>Winning Tickets</h1>
+      <h1>Winning Tickets ({winningUserTickets.length})</h1>
     ) : (
       <h1>No Winning Tickets</h1>
     );
   };
   const Operator = () => {
     return isOperatorWinningTickets ? (
-      <h1>Winning Tickets</h1>
+      <h1>Winning Tickets ({winningOperatorTickets.length})</h1>
     ) : (
       <h1>No Winning Tickets</h1>
     );
