@@ -26,7 +26,7 @@ const Navbar = () => {
       <nav>
         {!isOperator && <p>Balance: {userBalance + userWinnings}</p>}
         {!isOperator && <p>Winnings: {userWinnings}</p>}
-        {isOperator && <p>Price Pot: {pricePot}</p>}
+        {isOperator && <p>Prize Pot: {pricePot}</p>}
         {isOperator && <p>Payed Out: {payedOut}</p>}
         {isOperator && <p>Profit: {profit}</p>}
       </nav>
