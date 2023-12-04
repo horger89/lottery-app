@@ -3,7 +3,7 @@
 }
 
 .btn-who {
-  width: 180px;
+  width: 40%;
   padding: 10px 12px;
   border-radius: 15px;
   border: none;
@@ -24,7 +24,7 @@
 
 @media only screen and (max-width: 768px) {
   .btn-who {
-    width: 120px;
+    width: 45%;
     font-size: 15px;
     margin: 8px 8px;
   }
